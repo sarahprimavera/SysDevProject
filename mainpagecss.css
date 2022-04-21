@@ -1,0 +1,436 @@
+
+/* make sure the elements touch the sides of the page*/
+html,body{
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*navbar elements */
+nav{
+	background-color: #f7d000; /* makes the nabar yellow */
+	width: 100%;
+	height: 55px;
+    line-height: 2.5; /*puts text in the center*/
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+}
+
+/*adds margins around the navbar items 
+  and make the color of the text black  */
+nav #items a{
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 20px;	
+    margin-right: 0px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 18px;
+}
+
+/*remove the line under the navbar items on hover */
+nav #items a:hover{
+	background-color: #ceaf08;
+	text-decoration: none;
+}
+
+
+nav #items a: hover{
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+
+/*text in the image "welcome to..."*/
+h1{
+  /*center text in image*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* prevent user from highlighting text in the image */
+   -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+}
+
+h2{
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   vertical-align: baseline;
+   background: transparent;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;  
+}
+
+h3{
+	
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  vertical-align: baseline;
+  
+   -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+	
+
+}
+
+
+#header{
+	position: relative;
+  	color: white;
+}
+/*
+#header2{
+	position: relative;
+  	color: white;
+}
+*/
+/*make sure image fits in page*/
+#header img{
+	width: 100%;
+	height: 200px;
+}
+
+/*center text in image*/
+#header h1{
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*
+#header2 h1{
+	top: 500%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: Arial, Helvetica, sans-serif;
+}
+*/
+/*
+#header2 p{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+*/
+
+
+/* manages the items in the navbar */
+#items{
+	float: right; /*put the items to the right of the bar*/
+	text-decoration: none;
+	list-style: none; /*remove line under links*/
+}
+
+span1{
+	line-height: 4;
+	padding-left: 5%;
+}
+
+#center {
+	margin: 0 auto;
+	display: block;
+	width: 300px;
+	text-align: center;
+}
+
+/* Row Styles */
+div.newRow {
+    clear: both;
+    width: 100%;
+}
+
+div.newRow::after{
+    clear: both;
+    content: "";
+    display: table;
+}
+
+
+div[class^="col-1-3 specials"]{
+	min-height: 600px;
+	outline: 1px dashed rgb(71, 52, 29);
+}
+/*outline of the "View Button"*/
+p#box, a#box {
+  padding: 5px 50px;
+  border: 5px solid orange;
+  margin: 0;
+  position: relative;
+}
+
+
+div.specials h1 {
+   font-family: Champagne, cursive;
+   font-size: 1.8em;
+   font-weight: normal;
+   margin: 0.3em 0;
+   text-align: center;
+}
+
+div.specials p {
+   font-size: 0.8em;
+   margin-bottom: 1em;
+   line-height: 1.2;
+}
+
+div.specials a {
+   color: rgb(186, 186, 156);
+}
+
+/* Column Styles */
+div[class^="col-"]{
+    float: left;
+    padding: 3%;
+	box-sizing: border-box;
+}
+
+div.col-1-1 {
+	width: 100%;
+	position: auto;
+}
+
+div.col-1-2 {
+	width: 100%;
+	position: auto;
+}
+
+div.col-1-3 {
+	width: 33.33%;
+	text-align: center;
+	background-color: white;
+}
+
+div.col-2-3 {
+	width: 100%;
+	position: auto;
+}
+
+
+.moveleft {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, 0%);
+	/*border: 5px solid #FFFF00; was using this just for the sake of visual representation*/ 
+	/*padding: 10px;*/
+}
+
+.box-wrapper {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+#box1 {
+	padding: 10px;
+	height: 30px;
+	line-height: 30px;
+	border: solid 1px green
+}
+
+#box2 {
+	height: 15px;
+	padding: 8px;
+	border: solid 1px blue
+}
+
+#box3 {
+	padding: 10px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+	border: solid 1px green
+}
+
+#box4 {
+	flex-grow: 2;
+	border: solid 1px orange
+}
+
+.middle-column {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+	
+}
+
+.middle-column div {
+	flex-grow: 2;
+	margin: 0 8px;
+	border: solid 1px black;
+	text-align: center;
+	background-color: white;
+	min-height: auto;
+	min-width: auto;
+	display: center;
+	padding: auto;
+	
+}
+
+
+
+#box8 {
+	flex-grow: 1;
+	border: solid 1px black
+}
+
+/*Buttons*/
+
+#temp{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	z-index: 7; 
+}
+
+input {
+    border: 2px solid black;
+}
+
+label{
+	font-size: 15px;
+	font-weight: 450!important;
+}
+
+form center{
+	font-size: 18px;
+}
+
+form button{
+	display: block;
+	margin: 0 auto;
+	color: white;
+	background-color: #564cb2;
+	height: 35px;
+	width: 200px;
+	font-size: 15px;
+	border: 2px solid black;
+}
+
+
+input[type=email], input[type=password] {
+	background-color: #ededed;	
+}
+
+form:not(button){
+	position: fixed;
+	top: 50%;
+	left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+input::placeholder {
+  font-size: 15px;
+}
+
+form p, form p a{
+	tab-size: 4;
+	font-size: 15px;
+}
+/*password stuff */
+#pass{
+	font-size: 15px;
+	float: right;
+	line-height: 2;
+}
+
+
+form ul li{
+	list-style: none;
+	font-size: 15px;
+	color: grey;
+}
+
+
+#changeButton{
+	width: 100px;
+}
+
+#cancelButton{
+	width: 100px;
+}
+
+
+
+.small {
+	width: 100px;
+	float: left;
+	margin-right: 15px;
+	
+}
+
+#resetButton{
+    width: 200px;
+}
+
+form a{
+    cursor: pointer;
+}
+
+/*put the header in the middle*/
+#underline{
+	text-decoration: underline;
+	margin: auto;
+	display: block;
+}
+
+
+/*White box and the text inside*/
+
+.container {
+	position: flex; 
+	margin: 0; 
+	top: 0%;
+	width: 70%; 
+	background: black; 
+	min-height: 400px; 
+	float: left;
+	border: 5px solid red;
+	
+}
+
+.white-box { 
+	position: flex;
+	width: 30%; 
+	min-height: 200px; 
+	margin: 0; 
+	float: right;
+
+	background: black;
+	padding: 30px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	border: 5px solid red;
+	
+}
+
+.button {
+	padding: 4px 48px;
+	
+}
