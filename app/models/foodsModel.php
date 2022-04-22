@@ -47,11 +47,11 @@
 
         }
 
-        /*public function searchProduct($data){
-            $this->db->query("SELECT * FROM products WHERE ProductName OR ProductDescription LIKE :search");
+        public function searchProduct($data){
+            $this->db->query("SELECT * FROM foods WHERE foodName LIKE :search");
             $this->db->bind(':search', "%".$data['Search']."%");
             return $this->db->getResultSet();
-        }*/
+        }
 
         public function delete($data){
             $this->db->query("DELETE FROM foods WHERE foodId=:foodId");
