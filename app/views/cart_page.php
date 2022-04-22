@@ -14,7 +14,7 @@
 </head>
 <body style="background-color:#00a459;">
 	<div id="header">
-		<img src="dunes.png">
+		<img src="http://localhost/SysDevProject/public/img/dunes.png">
 
 		<h1>Welcome To Kadija's Online Food Shop</h1>
 </div>
