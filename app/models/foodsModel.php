@@ -47,7 +47,7 @@
 
         }
 
-        public function searchProduct($data){
+        public function searchFood($data){
             $this->db->query("SELECT * FROM foods WHERE foodName LIKE :search");
             $this->db->bind(':search', "%".$data['Search']."%");
             return $this->db->getResultSet();
