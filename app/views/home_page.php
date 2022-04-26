@@ -177,7 +177,7 @@
 					//<button id='viewFood' name='viewFood' class='btn btn-primary'><a href='Home/viewProduct/$foods->foodId'> View </a></button>
                     /*echo"<td>
                     <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='Home/AddCart/$product->UPC'>Add to cart </a></button>
+                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='Home/AddCart/$foods->foodId'>Add to cart </a></button>
                     </form>
                     </td>";*/
                     echo"</tr>";

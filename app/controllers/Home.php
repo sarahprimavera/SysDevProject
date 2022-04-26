@@ -19,7 +19,7 @@ class Home extends Controller
 
     public function viewFood($foodId){
         $food = $this->foodsModel->getFood($foodId);
-        //$this->view('viewFood',$food);
+        $this->view('ClientSide/viewFood',$food);
     }
 
  
