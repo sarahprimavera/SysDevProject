@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -153,15 +152,15 @@
 		
 		
 		<div class="col-1-1">
-		
-		<input id="center" type="text" placeholder="Search available Mauritanian Dish" >
-
-		
+			<form method="POST">
+				<input type="text" id="searchBar" name="searchBar" placeholder="Search available Mauritanian Dish">
+				<button type="submit" id="searchButton" name="searchButton" class='btn btn-dark'> <a href="/SysDevProject/Home/searchProduct">Search </a> </button>  
+			</form>
 		</div>
 	
 
 		<?php 
-                foreach($data['food'] as $foods){
+                foreach($data['foods'] as $foods){
                     echo"<tr>";
                     echo "<td>$foods->image</td>";
                     echo"<td>$foods->foodName</td>";
@@ -173,14 +172,12 @@
 					<path d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/>
 					</svg>
 					View</a></p>
-                    
                     </td>";
-					//<button id='viewFood' name='viewFood' class='btn btn-primary'><a href='Home/viewProduct/$foods->foodId'> View </a></button>
-                    /*echo"<td>
+                    echo"<td>
                     <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='Home/AddCart/$foods->foodId'>Add to cart </a></button>
+                    <button id='addToCart' name='addToCart' class='btn btn-dark'><a href='Home/AddCart/$foods->foodId'>Add to cart </a></button>
                     </form>
-                    </td>";*/
+                    </td>";
                     echo"</tr>";
                 }
         
@@ -523,5 +520,4 @@
 		 </div>
 		 </div>
 </body>
->>>>>>> 889d42fe50a22935d200fc2ddc5390e315e9e798
 </html>

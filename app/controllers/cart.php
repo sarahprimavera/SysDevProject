@@ -16,7 +16,7 @@ class userCart extends Controller{
         }else{
             $userId = $_SESSION['userId'];
             $cart = $this->cartModel->displayCart($userId);
-            $this->view('Cart/userCart',$cart);
+            $this->view('Cart/cart_page',$cart);
         }
         
     }
@@ -41,7 +41,7 @@ class userCart extends Controller{
             'item_id'=> $item_id
         ];
         if($this->cartModel->updateQuantity($data)){
-            echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/userCart/displayCart">';
+            echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/cart/displayCart">';
         }
     }
     public function decreaseQuantity($item_id){
@@ -53,7 +53,7 @@ class userCart extends Controller{
             'item_id'=> $item_id
         ];
         if($this->cartModel->updateQuantity($data)){
-            echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/userCart/displayCart">';
+            echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/cart/displayCart">';
         }
     }
 }

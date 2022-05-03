@@ -153,7 +153,35 @@
 		</div>
 		
 		
-		
+		<table class="table">
+        <thead class="table-light">
+        </thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scrop="col" colspan="2" class="text-center"> Actions</th>
+            </tr>
+        <tbody>
+                <?php 
+                    foreach($data as $food){
+                        echo"<tr>";
+                        echo"<td>$food->foodName</td>";
+                        echo"<td>$food->unitPrice</td>";
+                        echo"<td>
+                            <button id='addQuantity' name='addQuantity' class='btn btn-dark'><a href='/SysDevProject/cart/addQuantity/$food->item_id'> + </a></button>
+                            <label name='quantityValue'>".$food->quantity."</label>
+                            <button id='decreaseQuantity' name='decreaseQuantity' class='btn btn-dark'><a href='/TermProject/userCart/decreaseQuantity/$food->item_id'> - </a></button>
+                            </td>";
+                        echo"<td>
+                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/SysDevProject/cart/removeItem/$product->item_id'> Remove Item </a></button>
+                        </td>";
+                        echo"</tr>";
+                    }
+                ?>
+        </tbody>
+    </table>
 		
 		<div id="header" class="col-1-2">
 		

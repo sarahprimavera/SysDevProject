@@ -6,10 +6,11 @@
         }
     
         public function addCart($data){
-            $this->db->query("INSERT INTO cart ( userId, foodId, unitPrice, Quantity) values (:userId,
-                        :foodId, :unitPrice, :Quantity)");
+            $this->db->query("INSERT INTO cart ( userId, foodId, foodName, unitPrice, Quantity) values (:userId,
+                        :foodId, :foodName, :unitPrice, :Quantity)");
             $this->db->bind(':userId', $data['userId']);
             $this->db->bind(':foodId', $data['foodId']);
+            $this->db->bind(':foodName', $data['foodName']);
             $this->db->bind(':unitPrice', $data['unitPrice']);
             $this->db->bind(':Quantity', $data['Quantity']);
 

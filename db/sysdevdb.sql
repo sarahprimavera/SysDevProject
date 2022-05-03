@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2022 at 03:42 PM
+-- Generation Time: May 03, 2022 at 05:03 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -31,6 +31,7 @@ CREATE TABLE `cart` (
   `item_id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `foodId` int(11) NOT NULL,
+  `foodName` varchar(50) NOT NULL,
   `unitPrice` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
