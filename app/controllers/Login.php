@@ -147,3 +147,4 @@ class Login extends Controller
         echo '<meta http-equiv="Refresh" content="1; url=/MVC/Login/">';
     }
 }
+?>
