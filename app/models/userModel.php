@@ -16,7 +16,7 @@
         }
 
         public function createUser($data){
-            $this->db->query("INSERT INTO users (name, email) values (:name, :email, :phone)");
+            $this->db->query("INSERT INTO users (name, email) values (:name, :email)");
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
 
