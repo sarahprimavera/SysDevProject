@@ -10,73 +10,33 @@ class Login extends Controller
 
     public function index()
     {
-        if(!isset($_POST['login'])){
-            $this->view('Login/index');
-        }
-        else{
+        if(isset($_POST['login'])){
             $user = $this->loginModel->getUser($_POST['username']);
-            
             if($user != null){
                 $hashed_pass = $user->pass_hash;
                 $password = $_POST['password'];
-                $secret = $user->secret;
-                $code = $_POST['code'];
                 if(password_verify($password,$hashed_pass)){
-                    //echo '<meta http-equiv="Refresh" content="2; url=/MVC/">';
-                    if($user->secret != null){
-                        if(!empty($code)) {
-                            if(check($secret, $code)){
-                                $this->createSession($user);
-                                $data = [
-                                    'msg' => "Welcome, $user->username!",
-                                ];
-                                $this->view('Home/home',$data);
-                            }
-                            else{
-                                $data = [
-                                    'msg' => "2FA Code incorect/expired for $user->username",
-                                ];
-                                $this->view('Login/index',$data); 
-                            }
-                        }
-                        else{
-                            $data = [
-                                'msg' => "Please enter the 2FA code for $user->username",
-                            ];
-                            $this->view('Login/index',$data); 
-                        }
-                        
-                    }
-                    else{
-                        $this->createSession($user);
-                            $data = [
-                                'msg' => "Welcome, $user->username!",
-                            ];
-                            $this->view('Home/home',$data);
-                    }
-                }
-                else{
+                    $this->createSession($user);
+                    $data = [
+                        'msg' => "Welcome, $user->username!",
+                    ];
+                    $this->view('Home/home_page',$data);
+                }else{
                     $data = [
                         'msg' => "Password incorrect! for $user->username",
+                    ];                    
+                    }
+                }else{
+                    $data = [
+                        'msg' => "User: ". $_POST['username'] ." does not exists",
                     ];
-                    $this->view('Login/index',$data);
-                }
-            }
-            else{
-                $data = [
-                    'msg' => "User: ". $_POST['username'] ." does not exists",
-                ];
-                $this->view('Login/index',$data);
             }
         }
     }
 
     public function create()
     {
-        if(!isset($_POST['signup'])){
-            $this->view('Login/create');
-        }
-        else{
+        if(!isset($_POST['login'])){
             $user = $this->loginModel->getUser($_POST['username']);
             if($user == null){
                 $data = [
