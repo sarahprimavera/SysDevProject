@@ -7,14 +7,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-
     <link rel = "icon" href = 
 "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Africa_%28orthographic_projection%29.svg/1200px-Africa_%28orthographic_projection%29.svg.png" 
         type = "image/x-icon">
@@ -22,31 +19,25 @@
 <body style="background-color:#00a459;">
 	<div id="header">
 		<img src="dunes.png">
-
 		<h1>Welcome To Kadija's Online Food Shop</h1>
 	</div>
 		<div id="temp" style="visibility: hidden;tab-size: 4;"></div>
 		<nav>
 			<span1>&emsp;&emsp;Welcome Guest</span1>
-
 			<div id="items">
 			<a href="home_page.html">
 				<!--image of house next to "home" -->
 				<i class="fa fa-home" aria-hidden="true"></i>
 			Home</a> 
-
   			<a href="cart_page.html">
   				<!--image of cart next to "cart" -->
   				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 		Cart</a> 
-
   			<a href="/js/">About</a> 
   			<a  href="#" onclick="popin();">Login</a>
-
   			<script type="text/javascript">
 				var add = document.getElementById("temp");
 				var count = 1;
-
 				//close the log in popup when user presses outside the box
 				window.addEventListener('click', function(e){
 	
@@ -56,15 +47,12 @@
   					if(add.style.visibility == "visible" && count % 2){
   						$("#temp").css({"visibility" : "hidden"});
   					}
-
   					//if the login is visible lower the count
   					if(add.style.visibility == "visible"){
   						count--;
   					} 					
  				 }
 				})
-
-
 				//make the login page pop in when "Log in is pressed"
   				function popin() { 	
   				//change the content of the log in box				
@@ -77,13 +65,10 @@
   					'<button type="submit" name="login" class="btn btn-primary">Sign in</button>'+
   					'<br><p>New Client?		<a onclick="createNew();">Create Account</a></p>' +
   					'</form>';
-
   					//add css to the login box using jquery
   					$("#temp").css({"background-color": "white", "font-size": "150%", "width" : "425px", "height" : "400px", "visibility" : "visible"});
   					count++;
   				}
-
-
   				//function to change the popup to create new account
   				function createNew() {
   					add.innerHTML = '<br><form>' +
@@ -117,11 +102,9 @@
   					'<button type="button" onclick="resetPass();" id="resetButon">Send Reset Password Link</button><br><br>' +
   					'<button type="button" id="cancelButton" onclick="popin();">Cancel</button>' +
   					'</form>';
-
   					$("#temp").css({"background-color": "white", "font-size": "150%", "width" : "425px", "height" : "500px", "visibility" : "visible"});
   					count++;
   				}
-
   				function resetPass(){
   					add.innerHTML = '<br><form>' +
   					'<center>Reset Your Password</center><br><br>'+
@@ -138,14 +121,11 @@
   					'<button type="button" id="changeButton" class="small" >Change</button>' +
   					'<button type="button" id="cancelButton" class="small" onclick="lostPass()">Cancel</button>' +
   					'</form>';
-
   					$("#temp").css({"background-color": "white", "font-size": "150%", "width" : "425px", "height" : "500px", "visibility" : "visible"});
   					count++;
   				}
 				
-
 			</script>
-
   			</div>
 		</nav>
 		
@@ -153,11 +133,8 @@
 		<div class="row-1-1">
 		
 		<input id="center" name="search" type="text" placeholder="Search available Mauritanian Dish" >
-
 		</div>
 	
-
-
 		<div class="moveleft">
 		<div class="box-wrapper">
 		
@@ -183,7 +160,6 @@
 			   <i class="fa fa-eye" aria-hidden="true"></i>
 				View</a></p>
             </div>
-
             <div id="box3">
                <img src="food3.jpg" alt="" /> <hr style="width:100%">
                <h2>Dish #3</h2>
@@ -196,8 +172,6 @@
 			</div>
 			</div>
 			</div>
-
-
 			<div class="row-2-3">
 			<div class="newRow">
 			<div class="middle-row">
@@ -210,7 +184,6 @@
 			   <i class="fa fa-eye" aria-hidden="true"></i>
 				View</a></p>
             </div>
-
             <div id="box5">
                <img src="food2.jpg" alt="" /> <hr style="width:100%">
                <h2>Dish #5</h2>
@@ -220,7 +193,6 @@
 			   <i class="fa fa-eye" aria-hidden="true"></i>
 				View</a></p>
             </div>
-
             <div id="box6">
                <img src="food3.jpg" alt="" /> <hr style="width:100%">
                <h2>Dish #6</h2>
@@ -231,7 +203,6 @@
 				View</a></p>
             </div>
 			</div>
-
 		 </div>
 		 </div>
 		 </div>
