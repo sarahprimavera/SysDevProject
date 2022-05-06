@@ -17,6 +17,9 @@ class Home extends Controller
         
     }
 
+    public function aboutus(){
+        $this->view('about/AboutUs');
+    }
     public function viewFood($foodId){
         $food = $this->foodsModel->getFood($foodId);
         $this->view('ClientSide/viewFood',$food);
