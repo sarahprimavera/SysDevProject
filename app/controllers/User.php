@@ -3,9 +3,9 @@
     class User extends Controller{
         public function __construct(){
             $this->userModel = $this->model('userModel');
-            if(!isLoggedIn()){
+            /*if(!isLoggedIn()){
                 header('Location: /MVC/Login');
-            }
+            }*/
         }
 
         public function index(){
@@ -21,10 +21,10 @@
         }
 
         public function createUser(){
-            if(!isset($_POST['register'])){
+            /*if(!isset($_POST['register'])){
                 $this->view('User/createUser');
-            }
-            else{
+            }*/
+           // else{
                 $data=[
                     'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
@@ -36,7 +36,7 @@
                     //echo '<meta http-equiv="Refresh" content="2; url=/MVC/User/getUsers">';
                 }
 
-            }
+           // }
         }
 
         public function details($user_id){
@@ -56,7 +56,7 @@
                 $data=[
                     'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
-                    'ID' => $user_id
+                    'user_id' => $user_id
                 ];
                 if($this->userModel->updateUser($data)){
                     echo 'Please wait we are upating the user for you!';
@@ -69,7 +69,7 @@
 
         public function delete($user_id){
             $data=[
-                'ID' => $user_id
+                'user_id' => $user_id
             ];
             if($this->userModel->delete($data)){
                 echo 'Please wait we are deleting the user for you!';

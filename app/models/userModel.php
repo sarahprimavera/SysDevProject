@@ -33,7 +33,7 @@
             $this->db->query("UPDATE users SET name=:name, email=:email WHERE ID=:user_id");
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
-            $this->db->bind('user_id',$data['ID']);
+            $this->db->bind('user_id',$data['user']);
             if($this->db->execute()){
                 return true;
             }
@@ -45,7 +45,7 @@
 
         public function delete($data){
             $this->db->query("DELETE FROM users WHERE userId=:user_id");
-            $this->db->bind('user_id',$data['ID']);
+            $this->db->bind('user_id',$data['user']);
 
             if($this->db->execute()){
                 return true;

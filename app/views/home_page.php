@@ -77,14 +77,14 @@
   					'<input type="firstname" id="firstname" name="Firstname" value=""align="right" placeholder="Enter Your First Name..">'+
   					'<br><br><label for="lastname">Last Name</label>'+
   					'<input type="lastname" id="lastname" name="Lastname" value=""align="right" placeholder="Enter Your Last Name.."><br><br>'+
-					'<label for="telephone">Telephone</label><br>' +
-  					'<input type="telephone" id="telephone" name="Telephone" value=""align="right" placeholder="(123)-456-7890">'+
   					'<br><br><label for="homeaddress">Home Address</label>'+
   					'<input type="textarea" id="homeaddress" name="Homeaddress" value=""align="right" placeholder="Enter Your Home Address..">'+
 					'<br><br><label for="emailaddress">Email Address</label>'+
   					'<input type="emailaddress" id="emailaddress" name="Emailaddress" value=""align="right" placeholder="Enter Your Email Address..">'+
 					'<br><br><label for="password">Password</label>'+
   					'<input type="password" id="password" name="Password" value=""align="right" placeholder="Enter Your Password.."><br><br>'+
+					'<br><br><label for="repassword">Re-Enter Password</label>'+
+  					'<input type="password" id="repassword" name="RePassword" value=""align="right" placeholder="Re-Enter Your Password.."><br><br>'+
   					'<button class="small" type="button" >Create</button>  <button type="button" id="cancelButton" onclick="popin();">Cancel</button>'+
   					'</form>';
 					
