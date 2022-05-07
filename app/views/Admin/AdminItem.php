@@ -48,7 +48,6 @@ width: 130px;
 		max-width: 0%;
 	}
 
-
 </style>
 
 
@@ -57,9 +56,9 @@ width: 130px;
 	<title></title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse" id="settingsNav">
+	<nav class="navbar navbar-inverse">
 		<a class="navbar-brand" style="background-color:black;color: white;" href="/Main/Home">E-commerce project</a>
-				<ul class="nav navbar-nav"; style="display: inline-block;white-space:nowrap;">
+				<ul class="nav navbar-nav">
       				<li><a href="/Main/timeline">Timeline</a></li>
       				<li><a href="/Contact/about">About</a></li>
      				<li><a href="/Contact/contactus">Contact us</a></li>
@@ -69,40 +68,49 @@ width: 130px;
      			</ul>
 	</nav>
 	<center>
-	<h1 style="color:red">ADMIN PAGE</h1>
-	<h2 style="color:red">Welcome to the Admin Page </h4>
+	<h1 style="position: center; color:red">ITEM MANAGEMENT</h1>
+	<h4 style="color:red">Welcome to the Item Admin Page </h4>
+	<p style="color:red">This is the Admin Page where you can add or remove items</p>
+	</center>
+	
 	<h2 style=" left: 0; width: 100%; background-color: black; color: white; text-align: center;">Options </h2>
-
-	<li><a href="#" style="color:gray">Main Admin Page</a></li>
+	<center>
+	<li><a href="/Admin/AdminPage">Main Admin Page</a></li>
 	<li><a href="/Admin/AdminReport">View Reports</a></li>
 	<li><a href="/Admin/AdminUser">View Users</a></li>
-	<li><a href="/Admin/AdminItem">View Items</a></li>
+	<li><a style="color:gray;">View Items</a></li>
 
-	<h2 style="color:red">List of Admins</h2>
-
-	<table style="background-color: white; width: 50%;">
+	<h2 style="color:red">List of Items</h2>
+		<table style="background-color: white; width: 50%;">
 		<tr>
 			<td>ID</td>
-			<td>UserName</td>
+			<td>Name</td>
+			<td>Price</td>
+			<td>Actions</td>
 		</tr>
 
 		<?php
 
 			echo"<tr>";
-			if($data["admin"] != null) {
-			foreach($data["admin"] as $admins){
+			if($data["items"] != null) {
+			foreach($data["items"] as $item){
 
-				echo"<td>$admins->user_id</td>";
-				echo"<td>$admins->username</td>";
-
-			echo"</tr>";
-			}
+				echo"<td>$item->item_id</td>";
+       			echo"<td>$item->name</td>";
+				echo"<td>$item->price $</td>";
+				echo"<td>
+                <a href='/Admin/removeItem/$item->item_id'>Remove</a>
+                </td>";
+                echo"</tr>";
+       			}
 				} else {
-					echo "No Admin accounts found";
+					echo "No Items Available at this time";
 			}
+
 		?>
-
-
 	</table>
+	
+	<p class="text-center" style="color:white;">Add an Item: <a href="/Admin/additem">Add Item</a> </p>
 	</center>
-</div>
+	
+	

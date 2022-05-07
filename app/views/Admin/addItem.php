@@ -48,7 +48,6 @@ width: 130px;
 		max-width: 0%;
 	}
 
-
 </style>
 
 
@@ -57,9 +56,9 @@ width: 130px;
 	<title></title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse" id="settingsNav">
+	<nav class="navbar navbar-inverse">
 		<a class="navbar-brand" style="background-color:black;color: white;" href="/Main/Home">E-commerce project</a>
-				<ul class="nav navbar-nav"; style="display: inline-block;white-space:nowrap;">
+				<ul class="nav navbar-nav">
       				<li><a href="/Main/timeline">Timeline</a></li>
       				<li><a href="/Contact/about">About</a></li>
      				<li><a href="/Contact/contactus">Contact us</a></li>
@@ -69,40 +68,39 @@ width: 130px;
      			</ul>
 	</nav>
 	<center>
-	<h1 style="color:red">ADMIN PAGE</h1>
-	<h2 style="color:red">Welcome to the Admin Page </h4>
+	<h1 style="position: center; color:red">ADDING AN ITEM</h1>
+	<h4 style="color:red">Welcome to the Item Adding Page </h4>
+	<p style="color:red">This is the Admin Page where you can add an item</p>
+	</center>
+	
 	<h2 style=" left: 0; width: 100%; background-color: black; color: white; text-align: center;">Options </h2>
-
-	<li><a href="#" style="color:gray">Main Admin Page</a></li>
+	<center>
+	<li><a href="/Admin/AdminPage">Main Admin Page</a></li>
 	<li><a href="/Admin/AdminReport">View Reports</a></li>
 	<li><a href="/Admin/AdminUser">View Users</a></li>
-	<li><a href="/Admin/AdminItem">View Items</a></li>
+	<li><a href="/Admin/AdminItem">View Items</a></li>>
 
-	<h2 style="color:red">List of Admins</h2>
+	<h2 style="color:red">ADD ITEMS HERE</h2>
 
-	<table style="background-color: white; width: 50%;">
-		<tr>
-			<td>ID</td>
-			<td>UserName</td>
-		</tr>
+	<form class="px-4 py-3" method="post" action="" onsubmit="submitForm(event)" style="width:50%;">
+	<div class="form-group">
+        <label for="profileinput">Item picture</label>
+        <input type='file' name='picture' class='form-control' />
+    </div>
+    <div class="form-group">
+        <label for="nameinput">Item Name</label>
+        <input name="name" type="text" class="form-control" id="nameinput" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="descinput">description</label>
+        <textarea name="description" type="text" class="form-control" id="descinput" placeholder="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="priceinput">Price</label>
+        <input name="price" type="number" class="form-control" id="priceinput" placeholder="Price">
+    </div>
 
-		<?php
+    
 
-			echo"<tr>";
-			if($data["admin"] != null) {
-			foreach($data["admin"] as $admins){
-
-				echo"<td>$admins->user_id</td>";
-				echo"<td>$admins->username</td>";
-
-			echo"</tr>";
-			}
-				} else {
-					echo "No Admin accounts found";
-			}
-		?>
-
-
-	</table>
-	</center>
-</div>
+    <button type="submit" name='register' class="btn btn-primary">Register</button>
+    </form>
