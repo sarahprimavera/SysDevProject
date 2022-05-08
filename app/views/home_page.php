@@ -99,13 +99,13 @@
   					'<p>If you forgot your password, please put in your email address in the textbox below, then click reset password link </p><br>' +
   					'<input type="email" id="email" name="email" value=""align="right" placeholder="Enter Your Email Address..">'+
   					'<br><br>' +
-  					'<button type="button" onclick="resetPass();" id="resetButon">Send Reset Password Link</button><br><br>' +
+  					'<button type="button" onclick="resetMail();" id="resetButon">Send Reset Password Link</button><br><br>' +
   					'<button type="button" id="cancelButton" onclick="popin();">Cancel</button>' +
   					'</form>';
   					$("#temp").css({"background-color": "white", "font-size": "150%", "width" : "425px", "height" : "500px", "visibility" : "visible"});
   					count++;
   				}
-  				function resetPass(){
+  				/*function resetPass(){
   					add.innerHTML = '<br><form>' +
   					'<center>Reset Your Password</center><br><br>'+
   					'<label for="password">New Password</label><br>'+
@@ -123,7 +123,7 @@
   					'</form>';
   					$("#temp").css({"background-color": "white", "font-size": "150%", "width" : "425px", "height" : "500px", "visibility" : "visible"});
   					count++;
-  				}
+  				}*/
 				
 			</script>
   			</div>
