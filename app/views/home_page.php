@@ -168,7 +168,7 @@
                     echo"<tr>";
                     echo "<td></td>";
                     echo"<td>$foods->foodName</td>";
-					echo"<td> description</td>";
+					echo"<td>$foods->description</td>";
                     echo"<td>$foods->price</td>";
                     echo"<td>
                     <button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Home/AddCart/$foods->foodId'>Add to cart </a></button>

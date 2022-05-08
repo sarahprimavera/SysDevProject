@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2022 at 11:21 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: May 08, 2022 at 06:58 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `khadija_db`
+-- Database: `sysdevdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `item_id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `foodId` int(11) NOT NULL,
+  `foodName` varchar(50) NOT NULL,
+  `unitPrice` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -118,6 +133,14 @@ INSERT INTO `users` (`userId`, `name`, `email`) VALUES
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `cart_user_id_fk` (`userId`),
+  ADD KEY `cart_food_id_fk` (`foodId`);
+
+--
 -- Indexes for table `credentials`
 --
 ALTER TABLE `credentials`
@@ -148,6 +171,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `credentials`
 --
 ALTER TABLE `credentials`
@@ -174,6 +203,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_food_id_fk` FOREIGN KEY (`foodId`) REFERENCES `foods` (`foodId`),
+  ADD CONSTRAINT `cart_user_id_fk` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
 
 --
 -- Constraints for table `orders`
