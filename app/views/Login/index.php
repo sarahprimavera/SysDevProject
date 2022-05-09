@@ -31,7 +31,7 @@
 				</svg>
 			Home</a> 
 
-  			<a href="cart_page.html">
+  			<a href="cart.html">
   				<!--image of cart next to "cart" -->
   				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
   				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -40,23 +40,16 @@
 
   			<a href="/js/">About</a> 
 
-            <br>
-            <form> 
-                <center>Reset Your Password</center><br><br>
-                <label for="password">New Password</label><br>
-                <input type="password" id="password" name="Password" value=""align="right" placeholder="Enter Your Password.."><br><br>
-                <label for="password">Confirm New Password</label><br>
-                <input type="password" id="password" name="Password" value=""align="right" placeholder="Enter Your Password.."><br><br>' +
-                <ul>
-                <li>Password requirement</li>
-                <li>Must contain 5 characters</li>
-                <li>Must contain 1 capital</li>
-                <li>Must contain 1 speacial character</li>
-                </ul>
-                <button type="button" id="changeButton" class="small" >Change</button>'
-                <button type="button" id="cancelButton" class="small" onclick="lostPass()">Cancel</button>
-            </form>
-           <!-- $("#temp").css({"background-color": "white", "font-size": "150%", "width" : "425px", "height" : "500px", "visibility" : "visible"}); -->
+            <br><form method="post">
+                <center>Sign in to your account</center><br><br>
+  					<label for="email">Email Address</label><br>
+  					<input type="email" id="email" name="Email" value=""align="right" placeholder="Enter Your Email Address..">
+  					<br><br><label for="password">Password</label>
+                    <br><a href="/SysDevProject/Login/reset">Forgot password?</a><br>
+  					<input type="password" id="Password" name="Password" value=""align="right" placeholder="Enter Your Password.."><br><br>
+  					<button type="submit" name="login" class="btn btn-primary">Sign in</button>
+  					<br><p>New Client?		<a href="/SysDevProject/Login/create">Create Account</a></p>
+                </form>
         
 </body>
 </html>

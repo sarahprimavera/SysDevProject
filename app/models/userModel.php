@@ -9,9 +9,9 @@
             return $this->db->getResultSet();
         }
 
-        public function getUser($user_id){
-            $this->db->query("SELECT * FROM users WHERE ID = :user_id");
-            $this->db->bind(':user_id',$user_id);
+        public function getUser($userId){
+            $this->db->query("SELECT * FROM users WHERE userId = :userId");
+            $this->db->bind(':userId',$userId);
             return $this->db->getSingle();
         }
 
@@ -30,10 +30,10 @@
         }
 
         public function updateUser($data){
-            $this->db->query("UPDATE users SET name=:name, email=:email WHERE ID=:user_id");
+            $this->db->query("UPDATE users SET name=:name, email=:email WHERE ID=:userId");
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
-            $this->db->bind('user_id',$data['user']);
+            $this->db->bind('userId',$data['user']);
             if($this->db->execute()){
                 return true;
             }
@@ -44,8 +44,8 @@
         }
 
         public function delete($data){
-            $this->db->query("DELETE FROM users WHERE userId=:user_id");
-            $this->db->bind('user_id',$data['user']);
+            $this->db->query("DELETE FROM users WHERE userId=:userId");
+            $this->db->bind('userId',$data['user']);
 
             if($this->db->execute()){
                 return true;

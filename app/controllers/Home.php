@@ -2,10 +2,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'controllers/PHPMailer/src/Exception.php';
-require 'controllers/PHPMailer/src/PHPMailer.php';
-require 'controllers/PHPMailer/src/SMTP.php';
-require 'config/config.php';
+$home = "http://". $_SERVER["HTTP_HOST"] . dirname(__DIR__, 1);
+require dirname(__DIR__, 1) . '/controllers/PHPMailer-master/src/Exception.php';
+require dirname(__DIR__, 1) . '/controllers/PHPMailer-master/src/PHPMailer.php';
+require dirname(__DIR__, 1) . '/controllers/PHPMailer-master/src/SMTP.php';
+require dirname(__DIR__, 1) . '/config/config.php';
 
 class Home extends Controller
 {
@@ -45,7 +46,7 @@ class Home extends Controller
 
             if($this->cartModel->addCart($data)){
                 $cart = $this->cartModel->displayCart($_SESSION['ClientEmail']);
-                $this->view('Cart/cart_page',$cart);
+                $this->view('Cart/cart',$cart);
             }
         }
         
@@ -71,7 +72,7 @@ class Home extends Controller
 
     public function resetMail(){
         $mail = new PHPMailer(true);
-        if(isset($_POST(["email"]))){
+        if(null !== ($_POST["email"])){
             try {
                 $receiverMail = $_POST(["email"]);
                 //Server settings

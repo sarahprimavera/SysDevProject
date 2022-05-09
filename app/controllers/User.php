@@ -21,13 +21,13 @@
         }
 
         public function createUser(){
-            /*if(!isset($_POST['register'])){
+            if(isset($_POST['createButton'])){
                 $this->view('User/createUser');
-            }*/
-           // else{
+            }
+           else{
                 $data=[
-                    'name' => trim($_POST['name']),
-                    'email' => trim($_POST['email']),
+                    'name' => trim($_POST['Name']),
+                    'email' => trim($_POST['Email']),
                 ];
                
                 if($this->userModel->createUser($data)){
@@ -36,27 +36,27 @@
                     //echo '<meta http-equiv="Refresh" content="2; url=/MVC/User/getUsers">';
                 }
 
-           // }
+           }
         }
 
-        public function details($user_id){
-            $user = $this->userModel->getUser($user_id);
+        public function details($userId){
+            $user = $this->userModel->getUser($userId);
 
            
                 $this->view('User/details',$user);
             
         }
 
-        public function update($user_id){
-            $user = $this->userModel->getUser($user_id);
+        public function update($userId){
+            $user = $this->userModel->getUser($userId);
             if(!isset($_POST['update'])){
                 $this->view('User/updateUser',$user);
             }
             else{
                 $data=[
                     'name' => trim($_POST['name']),
-                    'email' => trim($_POST['email']),
-                    'user_id' => $user_id
+                    'Email' => trim($_POST['Email']),
+                    'userId' => $userId
                 ];
                 if($this->userModel->updateUser($data)){
                     echo 'Please wait we are upating the user for you!';
@@ -67,9 +67,9 @@
             }
         }
 
-        public function delete($user_id){
+        public function delete($userId){
             $data=[
-                'user_id' => $user_id
+                'userId' => $userId
             ];
             if($this->userModel->delete($data)){
                 echo 'Please wait we are deleting the user for you!';

@@ -13,10 +13,11 @@ class userCart extends Controller{
     public function displayCart(){
         if(!isLoggedIn()){
             //make it go to log in
+            $this->view('Login/index');
         }else{
             $userId = $_SESSION['userId'];
             $cart = $this->cartModel->displayCart($userId);
-            $this->view('Cart/cart_page',$cart);
+            $this->view('Cart/cart',$cart);
         }
         
     }

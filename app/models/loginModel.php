@@ -6,7 +6,7 @@
         }
     
         public function getUser($email){
-            $this->db->query("SELECT * FROM users WHERE email = :email");
+            $this->db->query("SELECT * FROM credentials WHERE email = :email");
             $this->db->bind(':email',$email);
             return $this->db->getSingle();
         }
