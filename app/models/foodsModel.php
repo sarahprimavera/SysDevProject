@@ -17,8 +17,9 @@
         }
 
         public function createFood($data){
-            $this->db->query("INSERT INTO foods (foodName, price, image, quantity) values (:foodName, :price, :image, :quantity)");
+            $this->db->query("INSERT INTO foods (foodName, description, price, image, quantity) values (:foodName, :description, :price, :image, :quantity)");
             $this->db->bind(':foodName', $data['foodName']);
+            $this->db->bind(':description', $data['description']);
             $this->db->bind(':price', $data['price']);
             $this->db->bind(':image', $data['image']);
             $this->db->bind(':quantity',$data['quantity']);

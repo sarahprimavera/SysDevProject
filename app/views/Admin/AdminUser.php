@@ -48,7 +48,6 @@ width: 130px;
 		max-width: 0%;
 	}
 
-
 </style>
 
 
@@ -57,9 +56,9 @@ width: 130px;
 	<title></title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse" id="settingsNav">
+	<nav class="navbar navbar-inverse">
 		<a class="navbar-brand" style="background-color:black;color: white;" href="/Main/Home">E-commerce project</a>
-				<ul class="nav navbar-nav"; style="display: inline-block;white-space:nowrap;">
+				<ul class="nav navbar-nav";>
       				<li><a href="/Main/timeline">Timeline</a></li>
       				<li><a href="/Contact/about">About</a></li>
      				<li><a href="/Contact/contactus">Contact us</a></li>
@@ -69,40 +68,48 @@ width: 130px;
      			</ul>
 	</nav>
 	<center>
-	<h1 style="color:red">ADMIN PAGE</h1>
-	<h2 style="color:red">Welcome to the Admin Page </h4>
+	<h1 style="position: center; color:red">USER MANAGEMENT</h1>
+	<h4 style="color:red">Welcome to the User Management Page </h4>
+	<p style="color:red">This is the Admin page that allows you to remove/ban unwanted users from the database</p>
+	
 	<h2 style=" left: 0; width: 100%; background-color: black; color: white; text-align: center;">Options </h2>
-
-	<li><a href="#" style="color:gray">Main Admin Page</a></li>
+	<li><a href="/Admin/AdminPage">Main Admin Page</a></li>
 	<li><a href="/Admin/AdminReport">View Reports</a></li>
-	<li><a href="/Admin/AdminUser">View Users</a></li>
+	<li><a style="color:gray;">View Users</a></li>
 	<li><a href="/Admin/AdminItem">View Items</a></li>
 
-	<h2 style="color:red">List of Admins</h2>
-
-	<table style="background-color: white; width: 50%;">
+	<h2 style="color:red">List of Users</h2>
+		<table style="background-color: white; width: 50%;">
 		<tr>
 			<td>ID</td>
 			<td>UserName</td>
+			<td>emails</td>
+			<td>Actions</td>
 		</tr>
 
 		<?php
 
 			echo"<tr>";
-			if($data["admin"] != null) {
-			foreach($data["admin"] as $admins){
-
-				echo"<td>$admins->user_id</td>";
-				echo"<td>$admins->username</td>";
-
-			echo"</tr>";
-			}
+			if($data["users"] != null) {
+			foreach($data["users"] as $user){
+				echo"<td>$user->user_id</td>";
+				echo"<td>$user->username</td>";
+       			echo"<td>$user->email</td>";
+       			echo"<td>
+                <a href='/Admin/removeUser/$user->user_id'> Ban</a>
+                </td>";
+                echo"</tr>";
+				}
 				} else {
-					echo "No Admin accounts found";
+					echo "No Users Available";
+				
+       			
 			}
 		?>
 
 
 	</table>
+
 	</center>
-</div>
+	
+	

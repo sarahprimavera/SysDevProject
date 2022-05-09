@@ -48,7 +48,6 @@ width: 130px;
 		max-width: 0%;
 	}
 
-
 </style>
 
 
@@ -57,9 +56,9 @@ width: 130px;
 	<title></title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse" id="settingsNav">
+	<nav class="navbar navbar-inverse">
 		<a class="navbar-brand" style="background-color:black;color: white;" href="/Main/Home">E-commerce project</a>
-				<ul class="nav navbar-nav"; style="display: inline-block;white-space:nowrap;">
+				<ul class="nav navbar-nav";>
       				<li><a href="/Main/timeline">Timeline</a></li>
       				<li><a href="/Contact/about">About</a></li>
      				<li><a href="/Contact/contactus">Contact us</a></li>
@@ -69,40 +68,47 @@ width: 130px;
      			</ul>
 	</nav>
 	<center>
-	<h1 style="color:red">ADMIN PAGE</h1>
-	<h2 style="color:red">Welcome to the Admin Page </h4>
+	<h1 style="position: center; color:red">REPORT MANAGEMENT</h1>
+	<h4 style="color:red">Welcome to the Reports Management Page </h4>
+	<p style="color:red">This is the Admin Page that allows the admin to see any reports made by the users</p>
+	</center>
+	
 	<h2 style=" left: 0; width: 100%; background-color: black; color: white; text-align: center;">Options </h2>
-
-	<li><a href="#" style="color:gray">Main Admin Page</a></li>
-	<li><a href="/Admin/AdminReport">View Reports</a></li>
+	<center>
+	<li><a href="/Admin/AdminPage">Main Admin Page</a></li>
+	<li><a style="color:gray;">View Reports</a></li>
 	<li><a href="/Admin/AdminUser">View Users</a></li>
 	<li><a href="/Admin/AdminItem">View Items</a></li>
 
-	<h2 style="color:red">List of Admins</h2>
-
-	<table style="background-color: white; width: 50%;">
+	<h2 style="color:red">List of Reports</h2>
+		<table style="background-color: white; width: 50%;">
 		<tr>
 			<td>ID</td>
-			<td>UserName</td>
+			<td>Content</td>
+			<td>Actions</td>
 		</tr>
 
 		<?php
 
 			echo"<tr>";
-			if($data["admin"] != null) {
-			foreach($data["admin"] as $admins){
+			if($data["reports"] != null) {
+			foreach($data["reports"] as $report){
 
-				echo"<td>$admins->user_id</td>";
-				echo"<td>$admins->username</td>";
-
-			echo"</tr>";
-			}
+				echo"<td>$report->user_id</td>";
+       			echo"<td>$report->report_content</td>";
+       			echo"<td>
+                <a href='/Admin/removeReport/$report->report_id'>Remove</a>
+                </td>";
+                echo"</tr>";
+       			}
 				} else {
-					echo "No Admin accounts found";
+					echo "No reports were made at this time";
 			}
 		?>
 
 
 	</table>
+
 	</center>
-</div>
+	
+	
