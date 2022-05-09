@@ -16,23 +16,31 @@
 </head>
 <body style="background-color:#00a459;">
 	<div id="header">
-		<img src="dunes.png">
+	<img src="http://localhost/SysDevProject/public/img/dunes.png">
 		<h1>Welcome To Kadija's Online Food Shop</h1>
 	</div>
 		<div id="temp" style="visibility: hidden;tab-size: 4;"></div>
 		<nav>
 			<span1>&emsp;&emsp;Welcome Guest</span1>
 			<div id="items">
-			<a href="home_page.html">
+			<a href="/SysDevProject/Home">
 				<!--image of house next to "home" -->
-				<i class="fa fa-home" aria-hidden="true"></i>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+  				<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+  				<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+				</svg>
 			Home</a> 
-  			<a href="cart_page.html">
+
+  			<a href="/SysDevProject/userCart/displayCart">
   				<!--image of cart next to "cart" -->
-  				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-		Cart</a> 
-  			<a href="/js/">About</a> 
-  			<a  href="#" onclick="popin();">Login</a>
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+  				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+				</svg>
+		Cart</a>
+		<a href="/SysDevProject/Home/aboutus">About</a> 
+  			<a  href="" onclick="popin();">Login</a>
+
+
   			<script type="text/javascript">
 				var add = document.getElementById("temp");
 				var count = 1;
@@ -130,32 +138,32 @@
 
 
 <table class="table">
-<thead class="table-light">
-</thead>
-<tr>
-<th scope="col">Food</th>
-<th scope="col">Food Name</th>
-<th scope="col">Description</th>
-<th scope="col">Price</th>
-<th scrop="col" colspan="2" class="text-center"> Actions</th>
-</tr>
-<tbody>
-<?php 
-foreach($data['foods'] as $foods){
-	echo"<tr>";
-	echo "<td></td>";
-	echo"<td>$foods->foodName</td>";
-	echo"<td>$foods->description</td>";
-	echo"<td>$foods->price</td>";
-	echo"<td>
-	<button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Home/AddCart/$foods->foodId'>Add to cart </a></button>
-	</td>";
-	echo"</tr>";
-}
-
-?>
-</tbody>
-</table>
+        <thead class="table-light">
+        </thead>
+            <tr>
+                <th scope="col">Food</th>
+                <th scope="col">Food Name</th>
+				<th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scrop="col" colspan="2" class="text-center"> Actions</th>
+            </tr>
+        <tbody>
+            <?php 
+                foreach($data['foods'] as $foods){
+                    echo"<tr>";
+                    echo "<td></td>";
+                    echo"<td>$foods->foodName</td>";
+					echo"<td>$foods->description</td>";
+                    echo"<td>$foods->price</td>";
+                    echo"<td>
+                    <button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Home/AddCart/$foods->foodId'>Add to cart </a></button>
+                    </td>";
+                    echo"</tr>";
+                }
+        
+            ?>
+        </tbody>
+    </table>
 <!-- 	
 		<div class="col-md-4 column productbox" >
 		<?php 
