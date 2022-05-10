@@ -17,11 +17,23 @@ class Home extends Controller
 
     public function index()
     {
+
         //displaying all products
         $foods = $this->foodsModel->getFoods();
             $data = [
                 'foods' => $foods
             ];
+
+        if(isset($_POST['submit'])){
+            $this->userModel = $this->model('userModel');
+            $data=[
+                'name' => $_SESSION['Firstname'],
+                'email' => $_POST['Emailaddress'],
+                'password' => $_POST['Password']
+            ];
+            $account = $this->userModel->createAccount($data);
+        }
+
         $this->view('home_page',$data);
         
     }
@@ -33,7 +45,7 @@ class Home extends Controller
 
     public function AddCart($UPC){
         if(!isLoggedIn()){
-            //can only start adding to cart when signed in
+            $this->view('Login/index');
         }else{
             $product = $this->foodsModel->getFood($UPC);
             $data=[
@@ -67,10 +79,16 @@ class Home extends Controller
             var_dump($data);
             $searchResult = $this->foodsModel->searchProduct($data);
             $this->view('ClientSide/viewFood',$searchResult);
-        }
-    }
+        }     
+}
 
-    public function resetMail(){
+      public function displayCart()
+        {
+            if(!isLoggedIn()){
+            $this->view('Login/index');
+        }
+}
+  public function resetMail(){
         $mail = new PHPMailer(true);
         if(null !== ($_POST["email"])){
             try {
@@ -103,4 +121,5 @@ class Home extends Controller
             }
         }
     }
+
 }
