@@ -123,7 +123,7 @@ class Login extends Controller
     public function logout(){
         unset($_SESSION['userId']);
         session_destroy();
-        echo '<meta http-equiv="Refresh" content="1; url=/MVC/home_page/">';
+        echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/home_page/">';
     }
 }
 ?>
