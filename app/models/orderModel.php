@@ -6,7 +6,7 @@
         }
         public function getOrders($userId){
             $this->db->query("SELECT * FROM orders WHERE userId = userId:");
-            $this->db->bind(':userId',$user_id);
+            $this->db->bind(':userId',$userId);
             return $this->db->getResultSet();
         }
 
@@ -36,7 +36,7 @@
         }
 
         public function acceptOrder($data){
-            $this->db->query("UPDATE orders SET isAccepted=:isAccepted, pickUpDate=:pickUpDate WHERE ID=:orderId");
+            $this->db->query("UPDATE orders SET isAccepted=:isAccepted, pickUpDate=:pickUpDate WHERE orderId=:orderId");
             $this->db->bind(':isAccepted', $data['isAccepted']);
             $this->db->bind(':pickUpDate',$data['pickUpDate']);
             $this->db->bind('orderId',$data['orderId']);
@@ -50,7 +50,7 @@
         }
 
         public function readyOrder($data){
-            $this->db->query("UPDATE orders SET isReady=:isReady WHERE ID=:orderId");
+            $this->db->query("UPDATE orders SET isReady=:isReady WHERE orderId=:orderId");
             $this->db->bind(':isReady', $data['isReady']);
             $this->db->bind('orderId',$data['orderId']);
             if($this->db->execute()){
@@ -63,7 +63,7 @@
         }
 
         public function delete($data){
-            $this->db->query("DELETE FROM orders WHERE ID=:orderId");
+            $this->db->query("DELETE FROM orders WHERE orderId=:orderId");
             $this->db->bind('orderId',$data['orderId']);
 
             if($this->db->execute()){

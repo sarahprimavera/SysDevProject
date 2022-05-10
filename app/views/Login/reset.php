@@ -38,8 +38,6 @@
 				</svg>
 		Cart</a> 
 
-  			<a href="/js/">About</a> 
-
             <br>
             <form> 
                 <center>Reset Your Password</center><br><br>

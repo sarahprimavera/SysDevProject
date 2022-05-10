@@ -224,8 +224,7 @@ input[type=time]{
 
 			<div id="items">
 			<a href="home_page.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
-
-  			<a href="/js/">About</a> 
+ 
   			<?php
   			echo '<a  href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>';
   			

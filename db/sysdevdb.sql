@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `item_id` int(11) NOT NULL,
+  `itemId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `foodId` int(11) NOT NULL,
   `foodName` varchar(50) NOT NULL,
-  `unitPrice` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -124,7 +124,7 @@ INSERT INTO `users` (`userId`, `name`, `email`, `password`) VALUES
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`item_id`),
+  ADD PRIMARY KEY (`itemId`),
   ADD KEY `userId_fk` (`userId`),
   ADD KEY `foodId_fk` (`foodId`);
 
@@ -156,7 +156,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `itemId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `foods`

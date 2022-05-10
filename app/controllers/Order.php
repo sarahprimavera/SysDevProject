@@ -9,7 +9,7 @@
             $this->view('Order/index');
         }
 
-        public function getOrders($userId){
+        public function status($userId){
             $orders = $this->orderModel->getOrders($userId);
             $data = [
                 "orders" => $orders
@@ -24,7 +24,7 @@
             if($this->orderModel->delete($data)){
                 echo 'Please wait we are deleting the order for you!';
                 //header('Location: /MVC/Order/getOrders');
-                echo '<meta http-equiv="Refresh" content=".2; url=/SysDevProject/Order/status">';
+                echo '<meta http-equiv="Refresh" content=".2; url=/SysDevProject/Order/status/'. $_SESSION['userId'].'">">';
             }
 
         }

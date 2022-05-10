@@ -26,7 +26,7 @@ class Admin extends Controller
         $this->view('Admin/EditMenu');
     }
 
-    public function editPage($item_id)
+    public function editPage($itemId)
     {
         $data = [
                 "orders" => $orders

@@ -38,7 +38,7 @@
 				</svg>
 		Cart</a> 
 
-  			<a href="/js/">About</a> 
+
 
 			<br><form id = "send" method = "post">
   					<center>Create an Account</center><br><br>

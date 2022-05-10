@@ -38,7 +38,6 @@
 				</svg>
 		Cart</a> 
 
-  			<a href="/js/">About</a> 
         <?php
         if (isLoggedIn()) {
 		echo '<a class="nav-link" href="/SysDevProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a>';

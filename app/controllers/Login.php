@@ -74,7 +74,7 @@ class Login extends Controller
                           <span class="sr-only">Please wait creating the account for '.trim($_POST["Email"]).'</span>
                         </div>
                       </div>';
-                        echo '<meta http-equiv="Refresh" content="2; url=home_page.html">';
+                        echo '<meta http-equiv="Refresh" content="2; url=/SysDevProject/home_page">';
                  }
                 } 
             }

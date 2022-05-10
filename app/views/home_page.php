@@ -42,10 +42,10 @@
 				</svg>
 
 		Cart</a>
-		<a href="/SysDevProject/Home/aboutus">About</a> 
 		<?php
 		if (isLoggedIn()) {
 		echo '<a class="nav-link" href="/SysDevProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a>';
+		echo '<a class="nav-link" href="/SysDevProject/Order/status/'. $_SESSION['userId'].'">Order Status</a>';
 		} 
 		else {
 		echo '<a  href="/SysDevProject/Login/index">Login</a>';
@@ -77,7 +77,7 @@
 					echo"<td>$foods->description</td>";
                     echo"<td>$foods->price</td>";
                     echo"<td>
-                    <button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Home/AddCart/$foods->foodId'>Add to cart </a></button>
+                    <button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Home/cart/$foods->foodId'>Add to cart </a></button>
                     </td>";
                     echo"</tr>";
                 }
@@ -101,134 +101,7 @@
 				// 	//echo "</div>";
 				// }
 			?>
-		</div> -->
 
-
-		<!--<div>
-			<form method="POST">
-				<input type="text" id="searchBar" name="searchBar" placeholder="Search available Mauritanian Dish">
-				<button type="submit" id="searchButton" name="searchButton" class='btn btn-dark'> <a href="/SysDevProject/Home/searchProduct">Search </a> </button>  
-			</form>
-		</div>-->
-
-		<?php 
-		//<path d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z'/>
-		//<path d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/>
-		//<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' class='bi bi-eye' viewBox='0 0 16 16'>
-		//</svg>
-               /* foreach($data['foods'] as $foods){
-                    echo"<tr>";
-                    //echo "<td>$foods->image</td>";
-                    echo"<td>$foods->foodName</td>";
-                    echo"<td>$foods->price</td>";
-                    echo"<td>
-					<p><a id='box' href='Home/viewProduct/$foods->foodId'> 
-			   		<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' class='bi bi-eye' viewBox='0 0 16 16'>
-					<path d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z'/>
-					<path d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/>
-					</svg>
-					View</a></p>
-                    </td>";
-                    echo"<td>
-                    <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-dark'><a href='Home/AddCart/$foods->foodId'>Add to cart </a></button>
-                    </form>
-                    </td>";
-                    echo"</tr>";
-                }*/
-
-				//original front end code for home page
-				/*<div class="moveleft">
-		<div class="box-wrapper">
-		
-			<div class="col-2-3">
-			<div class="newRow">
-			<div class="middle-column">
-            <div id="box5">
-               <img src="food1.jpg" alt="" /> <hr style="width:100%">
-               <h2>Dish #1</h2>
-               <p>Whatever description about the food in this box here</p>
-               <p>$20.00</p>
-               <p><a id="box" href="#"> 
-			   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg>
-				View</a></p>
-            </div>
-			
-            <div id="box6">
-               <img src="food2.jpg" alt="" /> <hr style="width:100%">
-               <h2>Dish #2</h2>
-               <p>Whatever description about the food in this box here</p>
-               <p>$20.00</p>
-               <p><a id="box" href="#"> 
-			   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg>
-				View</a></p>
-            </div>
-			
-            <div id="box7">
-               <img src="food3.jpg" alt="" /> <hr style="width:100%">
-               <h2>Dish #3</h2>
-               <p>Whatever description about the food in this box here</p>
-               <p>$20.00</p>
-               <p><a id="box" href="#"> 
-			   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg>
-				View</a></p>
-            </div>
-			</div>
-			</div>
-			</div>
-			<div class="col-2-3">
-			<div class="newRow">
-			<div class="middle-column">
-            <div id="box8">
-               <img src="food1.jpg" alt="" /> <hr style="width:100%">
-               <h2>Dish #4</h2>
-               <p>Whatever description about the food in this box here</p>
-               <p>$20.00</p>
-               <p><a id="box" href="#"> 
-			   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg>
-				View</a></p>
-            </div>
-            <div id="box9">
-               <img src="food2.jpg" alt="" /> <hr style="width:100%">
-               <h2>Dish #5</h2>
-               <p>Whatever description about the food in this box here</p>
-               <p>$20.00</p>
-               <p><a id="box" href="#"> 
-			   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg>
-				View</a></p>
-            </div>
-            <div id="box10">
-               <img src="food3.jpg" alt="" /> <hr style="width:100%">
-               <h2>Dish #6</h2>
-               <p>Whatever description about the food in this box here</p>
-               <p>$20.00</p>
-               <p><a id="box" href="#"> 
-			   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg>
-				View</a></p>
-            </div>
-			</div>
-		 </div>
-		 </div>
-		 </div>
-		 </div>*/
         
             ?>
 

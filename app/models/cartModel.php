@@ -6,12 +6,12 @@
         }
     
         public function addCart($data){
-            $this->db->query("INSERT INTO cart ( userId, foodId, foodName, unitPrice, Quantity) values (:userId,
-                        :foodId, :foodName, :unitPrice, :Quantity)");
+            $this->db->query("INSERT INTO cart ( userId, foodId, foodName, price, Quantity) values (:userId,
+                        :foodId, :foodName, :price, :Quantity)");
             $this->db->bind(':userId', $data['userId']);
             $this->db->bind(':foodId', $data['foodId']);
             $this->db->bind(':foodName', $data['foodName']);
-            $this->db->bind(':unitPrice', $data['unitPrice']);
+            $this->db->bind(':price', $data['price']);
             $this->db->bind(':Quantity', $data['Quantity']);
 
             if($this->db->execute()){
@@ -23,14 +23,14 @@
 
         }
 
-        public function getQuantity($item_id){
-            $this->db->query("SELECT Quantity FROM cart WHERE item_id = :item_id");
-            $this->db->bind(':item_id',$item_id);
+        public function getQuantity($itemId){
+            $this->db->query("SELECT Quantity FROM cart WHERE itemId = :itemId");
+            $this->db->bind(':itemId',$itemId);
             return $this->db->getSingle();
         }
         public function removeFromCart($data){
-            $this->db->query("DELETE FROM cart WHERE item_id=:item_id");
-            $this->db->bind(':item_id',$data['item_id']);
+            $this->db->query("DELETE FROM cart WHERE itemId=:itemId");
+            $this->db->bind(':itemId',$data['itemId']);
 
             if($this->db->execute()){
                 return true;
@@ -48,9 +48,9 @@
         }
 
         public function updateQuantity($data){
-            $this->db->query("UPDATE cart SET Quantity=:Quantity WHERE item_id=:item_id");
+            $this->db->query("UPDATE cart SET Quantity=:Quantity WHERE itemId=:itemId");
             $this->db->bind(':Quantity', $data['Quantity']);
-            $this->db->bind(':item_id',$data['item_id']);
+            $this->db->bind(':itemId',$data['itemId']);
             if($this->db->execute()){
                 return true;
             }

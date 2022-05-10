@@ -24,7 +24,7 @@ class userCart extends Controller{
 
     public function removeItem($itemID){
         $data=[
-            'item_id'=> $itemID
+            'itemId'=> $itemID
         ];
 
         if($this->cartModel->removeFromCart($data)){
@@ -33,25 +33,25 @@ class userCart extends Controller{
         }
     }
 
-    public function addQuantity($item_id){
-        $quantity = $this->cartModel->getQuantity($item_id);
+    public function addQuantity($itemId){
+        $quantity = $this->cartModel->getQuantity($itemId);
         $temp= $quantity->Quantity;
         $quantityVal = intval( $temp );
         $data=[
             'Quantity'=> ++$quantityVal,
-            'item_id'=> $item_id
+            'itemId'=> $itemId
         ];
         if($this->cartModel->updateQuantity($data)){
             echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/cart/displayCart">';
         }
     }
-    public function decreaseQuantity($item_id){
-        $quantity = $this->cartModel->getQuantity($item_id);
+    public function decreaseQuantity($itemId){
+        $quantity = $this->cartModel->getQuantity($itemId);
         $temp= $quantity->Quantity;
         $quantityVal = intval($temp);
         $data=[
             'Quantity'=> --$quantityVal,
-            'item_id'=> $item_id
+            'itemId'=> $itemId
         ];
         if($this->cartModel->updateQuantity($data)){
             echo '<meta http-equiv="Refresh" content="1; url=/SysDevProject/cart/displayCart">';

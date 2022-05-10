@@ -38,7 +38,6 @@
 				</svg>
 		Cart</a> 
 
-  			<a href="/js/">About</a> 
 
             <br><form method="post">
                 <center>Sign in to your account</center><br><br>

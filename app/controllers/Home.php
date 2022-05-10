@@ -13,6 +13,7 @@ class Home extends Controller
     public function __construct()
     {
         $this->foodsModel = $this->model('foodsModel');
+        $this->cartModel = $this->model('cartModel');
     }
 
     public function index()
@@ -52,12 +53,12 @@ class Home extends Controller
                 'userId' => $_SESSION['userId'],
                 'foodId' => $product->foodId,
                 'foodName' => $product->foodName,
-                'unitPrice' => $product->unitPrice,
+                'price' => $product->price,
                 'Quantity' => 1
             ];
 
             if($this->cartModel->addCart($data)){
-                $cart = $this->cartModel->displayCart($_SESSION['ClientEmail']);
+                $cart = $this->cartModel->displayCart($_SESSION['userId']);
                 $this->view('Cart/cart',$cart);
             }
         }

@@ -38,9 +38,17 @@
 				</svg>
 		Cart</a> 
 
-  			<a href="/js/">About</a> 
-  			<a  href="/SysDevProject/Login/index">Login</a>
 
+  			<a  href="/SysDevProject/Login/index">Login</a>
+			  <?php
+			if (isLoggedIn()) {
+			echo '<a class="nav-link" href="/SysDevProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a>';
+			echo '<a class="nav-link" href="/SysDevProject/Order/status/'. $_SESSION['userId'].'">Order Status</a>';
+			} 
+			else {
+			echo '<a  href="/SysDevProject/Login/index">Login</a>';
+			}
+			?>
 			
   			</div>
 		</nav>
@@ -67,14 +75,14 @@
                     foreach($data as $food){
                         echo"<tr>";
                         echo"<td>$food->foodName</td>";
-                        echo"<td>$food->unitPrice</td>";
+                        echo"<td>$food->price</td>";
                         echo"<td>
-                            <button id='addQuantity' name='addQuantity' class='btn btn-dark'><a href='/SysDevProject/cart/addQuantity/$food->item_id'> + </a></button>
+                            <button id='addQuantity' name='addQuantity' class='btn btn-dark'><a href='/SysDevProject/cart/addQuantity/$food->itemId'> + </a></button>
                             <label name='quantityValue'>".$food->quantity."</label>
-                            <button id='decreaseQuantity' name='decreaseQuantity' class='btn btn-dark'><a href='/TermProject/userCart/decreaseQuantity/$food->item_id'> - </a></button>
+                            <button id='decreaseQuantity' name='decreaseQuantity' class='btn btn-dark'><a href='/TermProject/userCart/decreaseQuantity/$food->itemId'> - </a></button>
                             </td>";
                         echo"<td>
-                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/SysDevProject/cart/removeItem/$product->item_id'> Remove Item </a></button>
+                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/SysDevProject/cart/removeItem/$product->itemId'> Remove Item </a></button>
                         </td>";
                         echo"</tr>";
                     }

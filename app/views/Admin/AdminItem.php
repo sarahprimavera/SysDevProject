@@ -60,7 +60,6 @@ width: 130px;
 		<a class="navbar-brand" style="background-color:black;color: white;" href="/Main/Home">E-commerce project</a>
 				<ul class="nav navbar-nav">
       				<li><a href="/Main/timeline">Timeline</a></li>
-      				<li><a href="/Contact/about">About</a></li>
      				<li><a href="/Contact/contactus">Contact us</a></li>
      				<li><a href="/Site/MainPage">Store Page</a></li>
 					<li><a href="/Contact/report">Report</a></li>
@@ -95,11 +94,11 @@ width: 130px;
 			if($data["items"] != null) {
 			foreach($data["items"] as $item){
 
-				echo"<td>$item->item_id</td>";
+				echo"<td>$item->itemId</td>";
        			echo"<td>$item->name</td>";
 				echo"<td>$item->price $</td>";
 				echo"<td>
-                <a href='/Admin/removeItem/$item->item_id'>Remove</a>
+                <a href='/Admin/removeItem/$item->itemId'>Remove</a>
                 </td>";
                 echo"</tr>";
        			}

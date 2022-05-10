@@ -32,7 +32,7 @@
                
                 if($this->userModel->createUser($data)){
                     echo 'Please wait we are creating the user for you!';
-                    header('Location: /MVC/User/getUsers');
+                    header('Location: /SysDevProject/User/getUsers');
                     //echo '<meta http-equiv="Refresh" content="2; url=/MVC/User/getUsers">';
                 }
 
@@ -45,26 +45,6 @@
            
                 $this->view('User/details',$user);
             
-        }
-
-        public function update($userId){
-            $user = $this->userModel->getUser($userId);
-            if(!isset($_POST['update'])){
-                $this->view('User/updateUser',$user);
-            }
-            else{
-                $data=[
-                    'name' => trim($_POST['name']),
-                    'Email' => trim($_POST['Email']),
-                    'userId' => $userId
-                ];
-                if($this->userModel->updateUser($data)){
-                    echo 'Please wait we are upating the user for you!';
-                    //header('Location: /MVC/User/getUsers');
-                    echo '<meta http-equiv="Refresh" content="2; url=/MVC/User/getUsers">';
-                }
-                
-            }
         }
 
         public function delete($userId){

@@ -60,7 +60,6 @@ width: 130px;
 		<a class="navbar-brand" style="background-color:black;color: white;" href="/Main/Home">E-commerce project</a>
 				<ul class="nav navbar-nav">
       				<li><a href="/Main/timeline">Timeline</a></li>
-      				<li><a href="/Contact/about">About</a></li>
      				<li><a href="/Contact/contactus">Contact us</a></li>
      				<li><a href="/Site/MainPage">Store Page</a></li>
 					<li><a href="/Contact/report">Report</a></li>
