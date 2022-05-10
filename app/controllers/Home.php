@@ -8,18 +8,27 @@ class Home extends Controller
 
     public function index()
     {
+
         //displaying all products
         $foods = $this->foodsModel->getFoods();
             $data = [
                 'foods' => $foods
             ];
+
+        if(isset($_POST['submit'])){
+            $this->userModel = $this->model('userModel');
+            $data=[
+                'name' => $_SESSION['Firstname'],
+                'email' => $_POST['Emailaddress'],
+                'password' => $_POST['Password']
+            ];
+            $account = $this->userModel->createAccount($data);
+        }
+
         $this->view('home_page',$data);
         
     }
 
-    public function aboutus(){
-        $this->view('about/AboutUs');
-    }
     public function viewFood($foodId){
         $food = $this->foodsModel->getFood($foodId);
         $this->view('ClientSide/viewFood',$food);
@@ -62,8 +71,6 @@ class Home extends Controller
             $searchResult = $this->foodsModel->searchProduct($data);
             $this->view('ClientSide/viewFood',$searchResult);
         }
-        
-
         
 }
 }
