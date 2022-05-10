@@ -46,6 +46,34 @@
 	<br>
 	
 </div>
+<table class="table">
+
+<thead class="table-light">
+</thead>
+	<tr>
+		<th scope="col">Food</th>
+		<th scope="col">Food Name</th>
+		<th scope="col">Description</th>
+		<th scope="col">Price</th>
+		<th scrop="col" colspan="2" class="text-center"> Actions</th>
+	</tr>
+<tbody>
+	<?php 
+		foreach($data['foods'] as $foods){
+			echo"<tr>";
+			echo "<td></td>";
+			echo"<td>$foods->foodName</td>";
+			echo"<td>$foods->description</td>";
+			echo"<td>$foods->price</td>";
+			echo"<td>
+			<button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Admin/editPage/$foods->foodId'>Edit </a></button>
+			</td>";
+			echo"</tr>";
+		}
+
+	?>
+</tbody>
+</table>
 
 </div>
 <script type="text/javascript">
