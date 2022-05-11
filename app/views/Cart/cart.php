@@ -20,10 +20,9 @@
 </div>
 		<div id="temp" style="visibility: hidden;tab-size: 4;"></div>
 		<nav>
-			<span1>&emsp;&emsp;Welcome Guest</span1>
 
 			<div id="items">
-			<a href="home_page.html">
+			<a style="color: red" href="/SysDevProject/Home">
 				<!--image of house next to "home" -->
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
   				<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -31,22 +30,20 @@
 				</svg>
 			Home</a> 
 
-  			<a href="cart.html">
+  			<a  style="color: red" href="/SysDevProject/userCart/displayCart">
   				<!--image of cart next to "cart" -->
   				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
   				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
 				</svg>
 		Cart</a> 
 
-
-  			<a  href="/SysDevProject/Login/index">Login</a>
 			  <?php
 			if (isLoggedIn()) {
-			echo '<a class="nav-link" href="/SysDevProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a>';
-			echo '<a class="nav-link" href="/SysDevProject/Order/status/'. $_SESSION['userId'].'">Order Status</a>';
+			echo '<a class="nav-link" style="color: red" href="/SysDevProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a>';
+			echo '<a class="nav-link" style="color: red"  href="/SysDevProject/Order/status/'. $_SESSION['userId'].'">Order Status</a>';
 			} 
 			else {
-			echo '<a  href="/SysDevProject/Login/index">Login</a>';
+			echo '<a style="color: red" href="/SysDevProject/Login/index">Login</a>';
 			}
 			?>
 			
@@ -74,15 +71,16 @@
                 <?php 
                     foreach($data as $food){
                         echo"<tr>";
+						echo "<td></td>";
                         echo"<td>$food->foodName</td>";
                         echo"<td>$food->price</td>";
                         echo"<td>
-                            <button id='addQuantity' name='addQuantity' class='btn btn-dark'><a href='/SysDevProject/cart/addQuantity/$food->itemId'> + </a></button>
-                            <label name='quantityValue'>".$food->quantity."</label>
-                            <button id='decreaseQuantity' name='decreaseQuantity' class='btn btn-dark'><a href='/TermProject/userCart/decreaseQuantity/$food->itemId'> - </a></button>
+                            <button id='addQuantity' name='addQuantity' class='btn btn-dark'><a href='/SysDevProject/cart/addQuantity/$food->foodId'> + </a></button>
+                            <label name='quantityValue'>".$food->Quantity."</label>
+                            <button id='decreaseQuantity' name='decreaseQuantity' class='btn btn-dark'><a href='/SysDevProject/cart/decreaseQuantity/$food->foodId'> - </a></button>
                             </td>";
                         echo"<td>
-                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/SysDevProject/cart/removeItem/$product->itemId'> Remove Item </a></button>
+                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/SysDevProject/cart/removeItem/$food->foodId'> Remove Item </a></button>
                         </td>";
                         echo"</tr>";
                     }

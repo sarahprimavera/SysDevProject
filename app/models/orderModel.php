@@ -5,7 +5,7 @@
             $this->db = new Model;
         }
         public function getOrders($userId){
-            $this->db->query("SELECT * FROM orders WHERE userId = userId:");
+            $this->db->query("SELECT * FROM orders WHERE userId = :userId");
             $this->db->bind(':userId',$userId);
             return $this->db->getResultSet();
         }
@@ -13,6 +13,13 @@
         public function getOrder($orderId){
             $this->db->query("SELECT * FROM orders WHERE orderId = :orderId");
             $this->db->bind(':orderId',$orderId);
+            return $this->db->getSingle();
+        }
+
+        public function getFood($foodId)
+        {
+            $this->db->query("SELECT * FROM foods WHERE foodId = :foodId");
+            $this->db->bind(':foodId',$foodId);
             return $this->db->getSingle();
         }
 

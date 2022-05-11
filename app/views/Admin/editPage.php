@@ -24,7 +24,7 @@
                 <nav>
                         <span1>&emsp;&emsp;Welcome Kadija</span1>
                         <div id="items">
-                        <a href="home_page.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
+                        <a href="/SysDevProject/Home"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
                         <a  href="#" onclick="popin();"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                 </div>
         <div class="w3-sidebar w3-light-grey w3-bar-block" id="sideBar" style="width:25%">

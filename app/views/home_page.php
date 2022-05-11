@@ -23,7 +23,14 @@
 	</div>
 		<div id="temp" style="visibility: hidden;tab-size: 4;"></div>
 		<nav>
-			<span1>&emsp;&emsp;Welcome Guest</span1>
+			<?php
+			if (isLoggedIn()) {
+			echo '<span1>&emsp;&emsp;Welcome   '. $_SESSION['user_username'].'</span1>';
+			} 
+			else {
+			echo '<span1>&emsp;&emsp;Welcome Guest</span1>';
+			}
+			?>
 			<div id="items">
 			<a href="/SysDevProject/Home">
 
@@ -70,14 +77,14 @@
             </tr>
         <tbody>
             <?php 
-                foreach($data['foods'] as $foods){
+                foreach($data['foods'] as $food){
                     echo"<tr>";
                     echo "<td></td>";
-                    echo"<td>$foods->foodName</td>";
-					echo"<td>$foods->description</td>";
-                    echo"<td>$foods->price</td>";
+                    echo"<td>$food->foodName</td>";
+					echo"<td>$food->description</td>";
+                    echo"<td>$food->price</td>";
                     echo"<td>
-                    <button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/Home/cart/$foods->foodId'>Add to cart </a></button>
+                    <button id='addToCart' name='addToCart' style='background-color:#000000;'><a href='/SysDevProject/userCart/addItem/$food->foodId'>Add to cart </a></button>
                     </td>";
                     echo"</tr>";
                 }
@@ -90,13 +97,13 @@
 
 			<?php 
 
-				// foreach($data['foods'] as $foods){
+				// foreach($data['food'] as $food){
 				// 	echo "<img src='https://www.cesarsway.com/wp-content/uploads/2019/09/AdobeStock_195276899-1024x681.jpeg.webp' class='img-responsive'>";
-				// 	echo "<div class='producttitle'>$foods->foodName </div>";
+				// 	echo "<div class='producttitle'>$food->foodName </div>";
 				// 	echo "<div class='productprice'><div class='pull-right'>";
-				// 	echo "<a href='/SysDevProject/Home/AddCart/$foods->foodId' class='btn btn-danger btn-sm' role='button'>Add to cart</a>";
+				// 	echo "<a href='/SysDevProject/Home/AddCart/$food->foodId' class='btn btn-danger btn-sm' role='button'>Add to cart</a>";
 				// 	echo "</div>";
-				// 	echo "<div class='pricetext'>$foods->price</div>";
+				// 	echo "<div class='pricetext'>$food->price</div>";
 				// 	echo "<p><a href='#'> View</a></p>";
 				// 	//echo "</div>";
 				// }

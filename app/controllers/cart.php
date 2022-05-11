@@ -1,8 +1,9 @@
 <?php
-class userCart extends Controller{
+class cart extends Controller{
     public function __construct()
     {
         $this->cartModel = $this->model('cartModel');
+        $this->foodsModel = $this->model('foodsModel');
     }
 
     public function index()
@@ -12,7 +13,6 @@ class userCart extends Controller{
 
     public function displayCart(){
         if(!isLoggedIn()){
-            //make it go to log in
             $this->view('Login/index');
         }else{
             $userId = $_SESSION['userId'];
@@ -48,7 +48,7 @@ class userCart extends Controller{
     public function decreaseQuantity($itemId){
         $quantity = $this->cartModel->getQuantity($itemId);
         $temp= $quantity->Quantity;
-        $quantityVal = intval($temp);
+        $quantityVal = intval( $temp );
         $data=[
             'Quantity'=> --$quantityVal,
             'itemId'=> $itemId

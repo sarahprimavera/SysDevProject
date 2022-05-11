@@ -1,6 +1,3 @@
-<?php require APPROOT . '/views/includes/header.php'; 
-?>
-
 <!DOCTYPE html>
 <html>
 <style type="text/css">

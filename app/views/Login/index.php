@@ -20,10 +20,9 @@
     </div>
 		<div id="temp" style="visibility: hidden;tab-size: 4;"></div>
 		<nav>
-			<span1>&emsp;&emsp;Welcome Guest</span1>
 
 			<div id="items">
-			<a href="home_page.html">
+			<a style="color: red" href="/SysDevProject/Home">
 				<!--image of house next to "home" -->
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
   				<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -31,7 +30,7 @@
 				</svg>
 			Home</a> 
 
-  			<a href="cart.html">
+  			<a style="color: red" href="/SysDevProject/cart">
   				<!--image of cart next to "cart" -->
   				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
   				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -44,10 +43,10 @@
   					<label for="email">Email Address</label><br>
   					<input type="email" id="email" name="Email" value=""align="right" placeholder="Enter Your Email Address..">
   					<br><br><label for="password">Password</label>
-                    <br><a href="/SysDevProject/Login/reset">Forgot password?</a><br>
+                    <br><a style="color: red" href="/SysDevProject/Login/reset">Forgot password?</a><br>
   					<input type="password" id="Password" name="Password" value=""align="right" placeholder="Enter Your Password.."><br><br>
   					<button type="submit" name="login" class="btn btn-primary">Sign in</button>
-  					<br><p>New Client?		<a href="/SysDevProject/Login/create">Create Account</a></p>
+  					<br><p>New Client?		<a style="color: red" href="/SysDevProject/Login/create">Create Account</a></p>
                 </form>
         
 </body>

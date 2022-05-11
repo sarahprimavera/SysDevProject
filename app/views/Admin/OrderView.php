@@ -223,10 +223,10 @@ input[type=time]{
 			<span1>&emsp;&emsp;Welcome Kadija</span1>
 
 			<div id="items">
-			<a href="home_page.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
+			<a style="color: red"href="/SysDevProject/Home"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
  
   			<?php
-  			echo '<a  href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>';
+  			echo '<a style="color: red"  href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>';
   			
   			?>
   		</div>
